@@ -21,3 +21,30 @@ func filterString(s string, allowed string) string {
 
 	return result.String()
 }
+
+func pop(slice *[]uint64) (value uint64, is_empty bool) {
+	if len(*slice) == 0 {
+		return 0, true // Empty slice
+	}
+
+	lastIndex := len(*slice) - 1
+	value = (*slice)[lastIndex]
+	*slice = (*slice)[:lastIndex]
+
+	return value, false
+}
+
+func validateBrackets(input string) bool {
+	depth := 0
+	for _, ch := range input {
+		if ch == '[' {
+			depth++
+		} else if ch == ']' {
+			depth--
+			if depth < 0 {
+				return false
+			}
+		}
+	}
+	return depth == 0
+}

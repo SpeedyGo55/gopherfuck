@@ -17,18 +17,22 @@ func (self *stateMachine) decrement() {
 
 func (self *stateMachine) right() {
 	self.index++
+	if self.index >= uint64(len(self.tape)) {
+		self.index = 0
+	}
 }
 
 func (self *stateMachine) left() {
-	self.index--
-}
+	if self.index == 0 {
+		self.index = uint64(len(self.tape) - 1)
+	} else {
+		self.index--
+	}
 
-func (self *stateMachine) jump(index uint) {
-	self.index = index
 }
 
 func (self *stateMachine) output() {
-	fmt.Printf("Test %c\n", self.tape[self.index])
+	fmt.Printf("%c", self.tape[self.index])
 }
 
 func (self *stateMachine) input(in byte) {
