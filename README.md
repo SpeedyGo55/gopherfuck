@@ -40,7 +40,7 @@ Gopherfuck is a Brainfuck interpreter written in Go (Golang). Its goal is to pro
 2. Example:
 
    ```bash
-   ./gopherfuck examples/hello_world.bf
+   ./gopherfuck bf_tests/hello_world.bf
    ```
 
    This command will execute the `hello_world.bf` Brainfuck program in the examples directory.
